@@ -14,10 +14,9 @@ return new class extends Migration {
             $table->id();
             $table->string("name");
             $table->decimal('price', 15, 2);
-            $table->foreignId('category_id')
-                ->nullable();
+            $table->foreignId('category_id')->nullable()->constrained()->onDelete('cascade');
             $table->boolean("available")->nullable();
-            $table->integer("quantity")->nullable();
+            $table->integer("quantity");
             $table->string("photo")->nullable();
             $table->timestamps();
         });

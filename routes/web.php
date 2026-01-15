@@ -8,6 +8,8 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+
+
 Route::resource('products', ProductController::class);
 
 Route::resource('categories', CategoryController::class);

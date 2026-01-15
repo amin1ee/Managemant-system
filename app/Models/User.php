@@ -46,14 +46,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function isManager(): bool
-    {
-        return $this->hasRole('manager');
-    }
-    public function isWorker(): bool
-    {
-        return $this->hasRole('worker');
-    }
+    // public function isManager(): bool
+    // {
+    //     return $this->hasRole('manager');
+    // }
+    // public function isWorker(): bool
+    // {
+    //     return $this->hasRole('worker');
+    // }
 
 
 

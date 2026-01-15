@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -11,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view("categories.index", compact('categories'));
     }
 
     /**
@@ -19,15 +22,16 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view("categories.create");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        $validated = $request->validated();
+        Category::create($validated);
     }
 
     /**
@@ -43,7 +47,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view("categories.edit", compact('category'));
     }
 
     /**
@@ -51,7 +56,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate(['name' => 'required|string|max:255']);
+        $category = Category::findOrFail($id);
+        $category->update($validated);
+        return redirect()
+            ->route(route: 'categories.index')
+            ->with('success', 'category updated successfully.');
     }
 
     /**
@@ -59,6 +69,10 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return redirect()
+            ->route('categories.index')
+            ->with('success', 'Product deleted successfully.');
     }
 }
