@@ -23,36 +23,73 @@
         <!-- Big div -->
         <div class="flex h-screen bg-gray-100">
             <!-- side -->
-             <aside class="flex-col  flex-1 bg-gray-800">
-               <div class="flex flex-col flex-1 overflow-y-auto">
-            <nav class="flex-1 px-2 py-4 bg-gray-800">
-                <a href="#" class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    Dashboard
-                </a>
-                <a href="{{ route("categories.index") }}" class="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                    Categories
-                </a>
-                <a href="{{ route(name: "products.index") }}" class="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    Products
-                </a>
-            </nav>
+             @if (auth()->user())
+             <aside class="flex flex-col flex-1 bg-gray-800">
+    <div class="flex flex-col flex-1 overflow-y-auto justify-between">
+        
+        <!-- Top: Name -->
+        <div class="px-4 mt-4">
+            <p class="text-white font-bold">{{ Auth()->user()->name }}</p>
         </div>
-             </aside>
+
+        <!-- Middle: Links -->
+        <nav class="flex flex-col px-2 py-2 space-y-2">
+            <a href="#" class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                Dashboard
+            </a>
+
+            <a href="{{ route('categories.index') }}" class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Categories
+            </a>
+
+            <a href="{{ route('products.index') }}" class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Products
+            </a>
+             <a href="{{ route('suppliers.index') }}" class="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Suppliers
+            </a>
+        </nav>
+
+        <!-- Bottom: Logout -->
+        <div class="px-4 py-4">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="flex items-center w-full px-4 py-2 text-gray-100 hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                    </svg>
+                    Logout
+                </button>
+            </form>
+        </div>
+
+    </div>
+</aside>
+
+
+              @endif
              <div class="flex flex-col flex-8  overflow-y-auto">
 
                 @yield("content")

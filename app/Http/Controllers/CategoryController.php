@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -32,12 +34,14 @@ class CategoryController extends Controller
     {
         $validated = $request->validated();
         Category::create($validated);
+
+         return redirect()->route('categories.index')->with('success', 'Category created!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         //
     }
@@ -45,16 +49,17 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(int $id)
     {
         $category = Category::findOrFail($id);
         return view("categories.edit", compact('category'));
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, int $id)
     {
         $validated = $request->validate(['name' => 'required|string|max:255']);
         $category = Category::findOrFail($id);
@@ -67,7 +72,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         $category = Category::findOrFail($id);
         $category->delete();
