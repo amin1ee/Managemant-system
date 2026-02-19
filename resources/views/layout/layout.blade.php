@@ -59,13 +59,24 @@
         </a>
 
         <!-- Notifications -->
-        <a href="{{ route('notifications.index') }}" class="flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-green-600 transition">
-            <span class="material-symbols-outlined text-lg">
-                notifications_active
-            </span>
-            <span class="font-medium">Notifications</span>
-        </a>
-        
+        <a href="{{ route('notifications.index') }}" 
+   class="relative flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-green-600 transition">
+   
+   <!-- Icon -->
+   <span class="material-symbols-outlined text-lg">
+      notifications_active
+   </span>
+
+   <!-- Label -->
+   <span class="font-medium">Notifications</span>
+
+   <!-- Badge -->
+   <div class="absolute -top-2 -right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-normal text-white bg-red-500 border-2 border-white rounded-full">
+      {{ $notificationsCount }}
+   </div>
+</a>
+
+
         <!-- Logout -->
 <a href="{{ route('logout') }}" 
    onclick="event.preventDefault(); document.getElementById('logout-form').submit();" 
