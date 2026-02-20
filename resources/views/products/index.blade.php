@@ -62,9 +62,22 @@
                             <span
                                 class="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full">{{ $product->category->name }}</span>
                             <span
-                                class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">${{ number_format($product->price, 2) }}</span>
-                            <span class="bg-purple-100 text-purple-700 text-xs px-3 py-1 rounded-full">{{ $product->quantity }}
-                                Qt</span>
+                                class="bg-gray-100 text-green-700 text-xs px-3 py-1 rounded-full">${{ number_format($product->price, 2) }}</span>
+                                 <span
+                                class="bg-purple-100 text-gray-700 text-xs px-3 py-1 rounded-full">{{ $product->quantity }} Qnt</span>
+                                
+                            @php
+    $status = $product->stockStatus();
+                   @endphp
+
+<span class="text-xs px-3 py-1 rounded-full font-semibold
+    @if($status === 'in_stock') bg-green-100 text-green-700
+    @elseif($status === 'low_stock') bg-yellow-100 text-yellow-700
+    @else bg-red-100 text-red-700
+    @endif
+">
+    {{ ucfirst(str_replace('_', ' ', $status))}} 
+</span>
                             @if($product->available)
                                 <span class="bg-emerald-100 text-emerald-700 text-xs px-3 py-1 rounded-full">Available</span>
                             @else

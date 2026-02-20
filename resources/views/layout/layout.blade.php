@@ -75,6 +75,13 @@
       {{ $notificationsCount }}
    </div>
 </a>
+  <!-- Suppliers -->
+        <a href="{{ route('suppliers.index') }}" class="flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-green-600 transition">
+            <span class="material-symbols-outlined text-lg">
+                orders
+            </span>
+            <span class="font-medium">Orders</span>
+        </a>
 
 
         <!-- Logout -->

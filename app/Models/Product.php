@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class Product extends Model
 {
     /** @use HasFactory<\Database\Factories\ProductFactory> */
-    use HasFactory ;
+    use HasFactory;
     use Notifiable;
     protected $fillable = [
         'name',
@@ -26,5 +26,18 @@ class Product extends Model
     public function supplier()
     {
         return $this->belongsTo(Supplier::class);
+    }
+    
+    public function stockStatus(): string
+    {
+        if ($this->quantity == 0) {
+            return 'out_of_stock';
+        }
+
+        if ($this->quantity <= 10) {
+            return 'low_stock';
+        }
+
+        return 'in_stock';
     }
 }
