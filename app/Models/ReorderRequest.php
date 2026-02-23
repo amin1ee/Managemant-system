@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class reorder_request extends Model
+class ReorderRequest extends Model
 {
     /** @use HasFactory<\Database\Factories\ReorderRequestFactory> */
     use HasFactory;

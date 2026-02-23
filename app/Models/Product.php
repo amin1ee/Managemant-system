@@ -27,7 +27,11 @@ class Product extends Model
     {
         return $this->belongsTo(Supplier::class);
     }
-    
+    public function reorder()
+    {
+        return $this->hasMany(ReorderRequest::class);
+    }
+
     public function stockStatus(): string
     {
         if ($this->quantity == 0) {
