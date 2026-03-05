@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ReorderRequest extends Model
+class Reorder extends Model
 {
     /** @use HasFactory<\Database\Factories\ReorderRequestFactory> */
     use HasFactory;
@@ -13,6 +13,8 @@ class ReorderRequest extends Model
         'requested_quantity',
         'status',
     ];
+     protected $table = 'reorder_requests';
+    
 
     public function product()
     {

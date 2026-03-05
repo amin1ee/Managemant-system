@@ -27,7 +27,7 @@
              <aside class="flex flex-col w-64 bg-green-900 text-white shadow-2xl">
     <div class="flex flex-col flex-1 px-2 py-4 space-y-2">
         <!-- Dashboard -->
-        <a href="#" class="flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-green-600 transition">
+        <a href="{{ route('dashboard.index') }}" class="flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-green-600 transition">
             <span class="material-symbols-outlined text-lg">
                 dashboard
             </span>

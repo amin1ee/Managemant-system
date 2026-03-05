@@ -29,7 +29,7 @@ class Product extends Model
     }
     public function reorder()
     {
-        return $this->hasMany(ReorderRequest::class);
+        return $this->hasMany(Reorder::class);
     }
 
     public function stockStatus(): string

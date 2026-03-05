@@ -30,15 +30,11 @@ class ReorderAutomatic extends Command
         $products = Product::where('quantity', '<', 15)->get();
 
         foreach ($products as $product) {
-            $hasPending = $product->reorder()
-                ->where('status', 'pending')
-                ->exists();
-            if (!$hasPending) {
-                $product->reorder()->create([
-                    "requested_quantity" => 50,
-                    "status" => "pending"
-                ]);
-            }
+            $product->reorder()->create([
+                "requested_quantity" => 50,
+                "status" => "pending"
+            ]);
+
 
 
 

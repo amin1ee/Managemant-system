@@ -11,7 +11,7 @@
                 @forelse($notifications as $notification)
                     <li class="px-4 py-3 flex justify-between items-start hover:bg-gray-50 transition">
                         <div>
-                            <p class="text-sm text-gray-600' }}">
+                            <p class="text-sm text-gray-600">
                                 {{ $notification->data['message'] ?? 'No message' }}
                             </p>
                             <span class="text-xs text-gray-400">
