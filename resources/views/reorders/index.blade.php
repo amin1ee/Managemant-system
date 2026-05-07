@@ -8,7 +8,7 @@
 
         <div class="bg-white shadow rounded-xl overflow-hidden">
             <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-100">
+                <thead class="bg-zinc-500">
                     <tr>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
                             Status
@@ -32,7 +32,7 @@
                     @forelse($reorders as $reorder)
                         <tr class="hover:bg-gray-50 transition">
 
-                            <td class="px-6 py-4 text-sm text-gray-700 bg-gray-200">
+                            <td class="px-6 py-4 text-sm text-gray-700">
                                 {{ ucfirst($reorder->status) }}
                             </td>
 
