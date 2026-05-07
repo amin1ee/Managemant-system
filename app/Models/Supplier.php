@@ -2,20 +2,22 @@
 
 namespace App\Models;
 
+use Database\Factories\SupplierFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Supplier extends Model
 {
-    /** @use HasFactory<\Database\Factories\SupplierFactory> */
+    /** @use HasFactory<SupplierFactory> */
     use HasFactory;
     protected $fillable = [
         'name',
         'company',
         'email',
         'phone',
-        'address'
+        'address',
     ];
+
     public function products()
     {
         return $this->hasMany(Product::class);

@@ -18,15 +18,13 @@ class ProductController extends Controller
 
         $query = Product::with('category');
 
-
         if ($request->filled('category_id')) {
             $query->where('category_id', $request->category_id);
         }
 
-
         $products = $query->paginate(12)->withQueryString();
 
-        return view("products.index", compact("products"), compact("categories"));
+        return view('products.index', compact('products'), compact('categories'));
     }
 
     /**
@@ -35,7 +33,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view("products.create", compact("categories"));
+
+        return view('products.create', compact('categories'));
     }
 
     /**
@@ -63,7 +62,6 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Product created!');
     }
 
-
     /**
      * Display the specified resource.
      */
@@ -79,7 +77,8 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $categories = Category::all();
-        return view("products.edit", compact('product'), compact('categories'));
+
+        return view('products.edit', compact('product'), compact('categories'));
     }
 
     /**
@@ -104,7 +103,6 @@ class ProductController extends Controller
             ->with('success', 'Product updated successfully.');
     }
 
-
     /**
      * Remove the specified resource from storage.
      */
@@ -112,6 +110,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $product->delete();
+
         return redirect()
             ->route('products.index')
             ->with('success', 'Product deleted successfully.');

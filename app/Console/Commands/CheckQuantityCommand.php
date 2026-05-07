@@ -29,7 +29,7 @@ class CheckQuantityCommand extends Command
     public function handle()
     {
         $products = Product::all();
-        $admins = User::where("role", "admin")->get();
+        $admins = User::where('role', 'admin')->get();
         foreach ($products as $product) {
             if ($product->quantity < 10) {
                 foreach ($admins as $admin) {

@@ -30,7 +30,7 @@
 
     </div>
 
-    @if($categories->isEmpty())
+    @if ($categories->isEmpty())
 
         <div class="bg-yellow-50 border border-yellow-200 text-yellow-700
                     rounded-2xl p-5 text-center">
@@ -44,7 +44,7 @@
         <!-- Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            @foreach($categories as $category)
+            @foreach ($categories as $category)
 
                 <div class="bg-white rounded-2xl shadow-md hover:shadow-xl
                             transition p-6 flex items-center justify-between">

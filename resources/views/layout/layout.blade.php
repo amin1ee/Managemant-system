@@ -60,9 +60,9 @@
         </a>
 
         <!-- Notifications -->
-        <a href="{{ route('notifications.index') }}" 
+        <a href="{{ route('notifications.index') }}"
    class="relative flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-blue-600 transition">
-   
+
    <!-- Icon -->
    <span class="material-symbols-outlined text-lg">
       notifications_active
@@ -86,8 +86,8 @@
 
 
         <!-- Logout -->
-<a href="{{ route('logout') }}" 
-   onclick="event.preventDefault(); document.getElementById('logout-form').submit();" 
+<a href="{{ route('logout') }}"
+   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
    class="flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-red-600 transition mt-auto">
     <span class="material-symbols-outlined text-lg">
         logout
@@ -110,9 +110,9 @@
              </div>
 
 
-        
+
         </div>
-       
+
     </body>
 </html>
 

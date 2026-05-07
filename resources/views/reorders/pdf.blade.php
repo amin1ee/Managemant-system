@@ -129,7 +129,7 @@
             <tbody>
                 <tr>
                     <td>{{ $reorder->requested_quantity }}</td>
-                    <td>{{ $reorder->product->name  }}</td>
+                    <td>{{ $reorder->product->name }}</td>
                     <td>€145.00</td>
                 </tr>
             </tbody>

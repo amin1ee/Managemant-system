@@ -19,7 +19,6 @@ class DashboardController extends Controller
 
         $loginAttempts = LoginAttempt::latest()->take(5)->get();
 
-
         $successfulLogins = $loginAttempts->where('successful', true)->count();
         $failedLogins = $loginAttempts->where('successful', false)->count();
 
@@ -28,19 +27,19 @@ class DashboardController extends Controller
             ->type('line')
             ->labels([
                 'Successful Logins',
-                'Failed Logins'
+                'Failed Logins',
             ])
             ->datasets([
                 [
                     'label' => 'Login attempts',
                     'data' => [
                         $successfulLogins,
-                        $failedLogins
+                        $failedLogins,
                     ],
 
                     'backgroundColor' => [
                         '#22c55e',
-                        '#ef4444'
+                        '#ef4444',
                     ],
                 ],
             ])
@@ -55,7 +54,7 @@ class DashboardController extends Controller
             ->labels([
                 'Low Stock',
                 'Out Of Stock',
-                'Normal Stock'
+                'Normal Stock',
             ])
             ->datasets([
                 [
@@ -63,14 +62,14 @@ class DashboardController extends Controller
                     'data' => [
                         $lowStockCount,
                         $outOfStockCount,
-                        $normalStockCount
+                        $normalStockCount,
                     ],
                     'backgroundColor' => [
                         '#facc15',
                         '#ef4444',
-                        '#22c55e'
-                    ]
-                ]
+                        '#22c55e',
+                    ],
+                ],
             ])
             ->options([
                 'responsive' => true,

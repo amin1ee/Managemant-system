@@ -11,7 +11,6 @@ class CategoryPolicy
      */
     public function create(User $user): bool
     {
-        return $user->role === "admin" || $user->role === "manager";
+        return $user->role === 'admin' || $user->role === 'manager';
     }
-
 }

@@ -13,7 +13,8 @@ class SupplierController extends Controller
     public function index()
     {
         $suppliers = Supplier::paginate(10);
-        return view("suppliers.index",compact("suppliers"));
+
+        return view('suppliers.index', compact('suppliers'));
     }
 
     /**
@@ -63,6 +64,7 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::findOrFail($id);
         $supplier->delete();
+
         return redirect()
             ->route('suppliers.index')
             ->with('success', 'supplier deleted successfully.');

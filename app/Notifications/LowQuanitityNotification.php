@@ -4,7 +4,6 @@ namespace App\Notifications;
 
 use App\Models\Product;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -41,7 +40,6 @@ class LowQuanitityNotification extends Notification
             ->line('Thank you for using our application!');
     }
 
-
     /**
      * Get the array representation of the notification.
      *
@@ -50,7 +48,7 @@ class LowQuanitityNotification extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            'message' => "Your product {$this->product->name} has low quantity {$this->product->quantity}"
+            'message' => "Your product {$this->product->name} has low quantity {$this->product->quantity}",
         ];
     }
 }

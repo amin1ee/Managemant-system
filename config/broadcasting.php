@@ -2,9 +2,9 @@
 
 return
   [
-    'options' => [
-      'cluster' => 'eu',
-      'useTLS' => true
-    ],
+      'options' => [
+          'cluster' => 'eu',
+          'useTLS' => true,
+      ],
 
   ];

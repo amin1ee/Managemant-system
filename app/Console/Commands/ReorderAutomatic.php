@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Models\Product;
-
 use Illuminate\Console\Command;
 
 class ReorderAutomatic extends Command
@@ -31,12 +30,9 @@ class ReorderAutomatic extends Command
 
         foreach ($products as $product) {
             $product->reorder()->create([
-                "requested_quantity" => 50,
-                "status" => "pending"
+                'requested_quantity' => 50,
+                'status' => 'pending',
             ]);
-
-
-
 
         }
     }

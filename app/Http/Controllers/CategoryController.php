@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -16,7 +14,8 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view("categories.index", compact('categories'));
+
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -24,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view("categories.create");
+        return view('categories.create');
     }
 
     /**
@@ -35,7 +34,7 @@ class CategoryController extends Controller
         $validated = $request->validated();
         Category::create($validated);
 
-         return redirect()->route('categories.index')->with('success', 'Category created!');
+        return redirect()->route('categories.index')->with('success', 'Category created!');
     }
 
     /**
@@ -52,8 +51,9 @@ class CategoryController extends Controller
     public function edit(int $id)
     {
         $category = Category::findOrFail($id);
-        return view("categories.edit", compact('category'));
-        
+
+        return view('categories.edit', compact('category'));
+
     }
 
     /**
@@ -64,6 +64,7 @@ class CategoryController extends Controller
         $validated = $request->validate(['name' => 'required|string|max:255']);
         $category = Category::findOrFail($id);
         $category->update($validated);
+
         return redirect()
             ->route(route: 'categories.index')
             ->with('success', 'category updated successfully.');
@@ -76,6 +77,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
+
         return redirect()
             ->route('categories.index')
             ->with('success', 'Product deleted successfully.');

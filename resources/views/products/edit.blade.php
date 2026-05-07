@@ -75,7 +75,7 @@
                             class="w-full border border-gray-300 rounded-xl px-4 py-3
                                    focus:ring-2 focus:ring-blue-500 focus:outline-none">
 
-                        @foreach($categories as $category)
+                        @foreach ($categories as $category)
                             <option value="{{ $category->id }}"
                                 {{ $product->category_id == $category->id ? 'selected' : '' }}>
                                 {{ $category->name }}
@@ -101,7 +101,7 @@
                 </div>
 
                 <!-- Image -->
-                @if($product->photo)
+                @if ($product->photo)
                     <div>
                         <label class="block mb-2 text-sm font-semibold text-gray-700">
                             Current Image

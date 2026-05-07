@@ -8,7 +8,7 @@
 
         <div class="bg-white shadow rounded-xl">
             <ul class="divide-y divide-gray-200 max-h-96 overflow-y-auto">
-                @forelse($notifications as $notification)
+                @forelse ($notifications as $notification)
                     <li class="px-4 py-3 flex justify-between items-start hover:bg-gray-50 transition">
                         <div>
                             <p class="text-sm text-gray-600">

@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Amin',
             'role' => 'admin',
             'email' => 'amin@amin.nl',
-            'password' => bcrypt("password")
+            'password' => bcrypt('password'),
         ]);
         $categories = [
             'Electronics',

@@ -29,7 +29,7 @@
                 </thead>
 
                 <tbody class="divide-y divide-gray-200">
-                    @forelse($reorders as $reorder)
+                    @forelse ($reorders as $reorder)
                         <tr class="hover:bg-gray-50 transition">
 
                             <td class="px-6 py-4 text-sm text-gray-700">

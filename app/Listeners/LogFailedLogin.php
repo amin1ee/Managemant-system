@@ -4,9 +4,6 @@ namespace App\Listeners;
 
 use App\Models\LoginAttempt;
 use Illuminate\Auth\Events\Failed;
-use Illuminate\Auth\Events\Login;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class LogFailedLogin
 {
@@ -30,7 +27,3 @@ class LogFailedLogin
         ]);
     }
 }
-
-
-
-

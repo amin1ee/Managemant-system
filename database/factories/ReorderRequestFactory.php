@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\reorder_request;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\reorder_request>
+ * @extends Factory<reorder_request>
  */
 class ReorderRequestFactory extends Factory
 {
