@@ -8,7 +8,7 @@
 
         <div class="bg-white shadow rounded-xl overflow-hidden">
             <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-zinc-500">
+                <thead class="bg-zinc-100">
                     <tr>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">
                             Status
@@ -41,7 +41,7 @@
                             </td>
 
                             <td class="px-6 py-4 text-sm text-gray-700">
-                                {{ $reorder->product->supplier->company }}
+                                {{ $reorder->product->supplier->company ?? 'N/A' }}
                             </td>
 
                             <td class="px-6 py-4 text-sm text-gray-700">

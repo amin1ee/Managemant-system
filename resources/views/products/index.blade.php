@@ -17,27 +17,32 @@
         </div>
 
 
-        <!-- Filter -->
-        <form method="GET" action="{{ url()->current() }}"
-            class="bg-white p-4 rounded-xl shadow mb-8 flex flex-col sm:flex-row gap-4 items-end">
-            <div class="flex flex-col w-full sm:w-64">
-                <label for="category" class="mb-1 text-sm font-semibold text-gray-600">Category</label>
-                <select name="category_id" id="category"
-                    class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500">
-                    <option value="">All Categories</option>
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
-                            {{ $category->name }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-
-            <button type="submit" class="bg-gray-700 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition">
-                Filter
-            </button>
-        </form>
-
+     {{-- Filter --}}
+    <form method="GET" action="{{ url()->current() }}"
+        class="bg-white border border-gray-100 rounded-xl p-4 mb-6 flex flex-wrap gap-4 items-end">
+        <div class="flex flex-col gap-1">
+            <label class="text-xs uppercase tracking-wide text-gray-400 font-medium">Category</label>
+            <select name="category_id"
+                class="border border-gray-200 rounded-lg px-3 py-2 text-sm bg-gray-50 focus:ring-2 focus:ring-green-400 outline-none min-w-[160px]">
+                <option value="">All Categories</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="flex flex-col gap-1">
+            <label class="text-xs uppercase tracking-wide text-gray-400 font-medium">Search</label>
+            <input type="text" name="search" value="{{ request('search') }}" placeholder="Product name…"
+                class="border border-gray-200 rounded-lg px-3 py-2 text-sm bg-gray-50 focus:ring-2 focus:ring-green-400 outline-none min-w-[180px]">
+        </div>
+        <button type="submit"
+            class="inline-flex items-center gap-2 bg-blue-900 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-800 transition">
+            <span class="material-symbols-outlined text-base">filter_list</span>
+            Filter
+        </button>
+    </form>
         <!-- Products Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @foreach ($products as $product)

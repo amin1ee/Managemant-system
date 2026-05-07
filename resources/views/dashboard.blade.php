@@ -5,8 +5,12 @@
 @section('content')
 
     <div class="container mx-auto p-6">
+        <!-- Products -->
+        <header class="mb-6 bg-gray-300 p-4 rounded-lg hover:bg-blue-200 transition">
+            <p class="text-gray-700 font-medium">Welcome, {{ Auth::user()->name }}!</p>
+            <h1 class="text-2xl font-bold mb-6">Dashboard</h1>
+        </header>
 
-        <h1 class="text-2xl font-bold mb-6">Dashboard</h1>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
