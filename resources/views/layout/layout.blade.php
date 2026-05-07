@@ -81,7 +81,7 @@
             <span class="material-symbols-outlined text-lg">
                 orders
             </span>
-            <span class="font-medium">Orders</span>
+            <span class="font-medium">Reorders</span>
         </a>
 
 
