@@ -22,92 +22,75 @@
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
     </head>
-    <body>
-        <div class="flex h-screen bg-gray-100">
-             @if (auth()->user())
-            <aside id="sidebare" class="flex flex-col bg-blue-900 text-white shadow-2xl rounded-lg m-4 shadow-gray-400">
-    <div class="flex flex-col flex-1 px-2 py-4 space-y-2">
-        <!-- Dashboard -->
-        <a href="{{ route('dashboard.index') }}" class="flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-blue-600 transition">
-            <span class="material-symbols-outlined text-lg">
-                dashboard
-            </span>
-            <span class="font-medium">Dashboard</span>
-        </a>
+    <body class="bg-slate-100 text-slate-800 antialiased">
+        <div class="flex min-h-screen bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.14),transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(14,165,233,0.12),transparent_30%)]">
+            @if (auth()->user())
+                <aside id="sidebare" class="m-4 flex flex-col rounded-[28px] border border-white/10 bg-slate-950/95 text-white shadow-[0_25px_60px_rgba(15,23,42,0.28)] backdrop-blur-xl">
+                    <div class="flex flex-col flex-1 px-2 py-5">
+                        <div class="mb-6 flex items-center gap-3 px-4">
+                            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-500 text-lg text-white shadow-lg shadow-indigo-500/30">
+                                <span class="material-symbols-outlined text-xl">inventory</span>
+                            </div>
+                            <div class="font-medium text-white/90">
+                                <div class="text-[10px] uppercase tracking-[0.22em] text-slate-400">System</div>
+                                <div class="text-sm font-semibold">Mennous</div>
+                            </div>
+                        </div>
 
-        <!-- Categories -->
-        <a href="{{ route('categories.index') }}" class="flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-blue-600 transition">
-            <span class="material-symbols-outlined text-lg">
-                category
-            </span>
-            <span class="font-medium">Categories</span>
-        </a>
+                        <nav class="flex flex-1 flex-col space-y-2">
+                            <a href="{{ route('dashboard.index') }}" class="group flex items-center gap-3 rounded-2xl px-4 py-2.5 text-slate-200 transition hover:bg-white/5 hover:text-white">
+                                <span class="material-symbols-outlined text-lg text-indigo-300 transition group-hover:text-white">dashboard</span>
+                                <span class="font-medium">Dashboard</span>
+                            </a>
 
-        <!-- Products -->
-        <a href="{{ route('products.index') }}" class="flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-blue-600 transition">
-            <span class="material-symbols-outlined text-lg">
-                inventory_2
-            </span>
-            <span class="font-medium">Products</span>
-        </a>
+                            <a href="{{ route('categories.index') }}" class="group flex items-center gap-3 rounded-2xl px-4 py-2.5 text-slate-200 transition hover:bg-white/5 hover:text-white">
+                                <span class="material-symbols-outlined text-lg text-indigo-300 transition group-hover:text-white">category</span>
+                                <span class="font-medium">Categories</span>
+                            </a>
 
-        <!-- Suppliers -->
-        <a href="{{ route('suppliers.index') }}" class="flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-blue-600 transition">
-            <span class="material-symbols-outlined text-lg">
-                local_shipping
-            </span>
-            <span class="font-medium">Suppliers</span>
-        </a>
+                            <a href="{{ route('products.index') }}" class="group flex items-center gap-3 rounded-2xl px-4 py-2.5 text-slate-200 transition hover:bg-white/5 hover:text-white">
+                                <span class="material-symbols-outlined text-lg text-indigo-300 transition group-hover:text-white">inventory_2</span>
+                                <span class="font-medium">Products</span>
+                            </a>
 
-        <!-- Notifications -->
-        <a href="{{ route('notifications.index') }}"
-   class="relative flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-blue-600 transition">
+                            <a href="{{ route('suppliers.index') }}" class="group flex items-center gap-3 rounded-2xl px-4 py-2.5 text-slate-200 transition hover:bg-white/5 hover:text-white">
+                                <span class="material-symbols-outlined text-lg text-indigo-300 transition group-hover:text-white">local_shipping</span>
+                                <span class="font-medium">Suppliers</span>
+                            </a>
 
-   <!-- Icon -->
-   <span class="material-symbols-outlined text-lg">
-      notifications_active
-   </span>
+                            <a href="{{ route('notifications.index') }}" class="group relative flex items-center gap-3 rounded-2xl px-4 py-2.5 text-slate-200 transition hover:bg-white/5 hover:text-white">
+                                <span class="material-symbols-outlined text-lg text-indigo-300 transition group-hover:text-white">notifications_active</span>
+                                <span class="font-medium">Notifications</span>
 
-   <!-- Label -->
-   <span class="font-medium">Notifications</span>
+                                <div class="absolute right-3 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1.5 text-[10px] font-semibold text-white ring-2 ring-slate-900">
+                                    {{ $notificationsCount }}
+                                </div>
+                            </a>
 
-   <!-- Badge -->
-   <div class="absolute -top-2 -right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-normal text-white bg-red-500 border-2 border-white rounded-full">
-      {{ $notificationsCount }}
-   </div>
-</a>
-  <!-- Suppliers -->
-        <a href="{{ route('reorders.index') }}" class="flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-blue-600 transition">
-            <span class="material-symbols-outlined text-lg">
-                orders
-            </span>
-            <span class="font-medium">Reorders</span>
-        </a>
+                            <a href="{{ route('reorders.index') }}" class="group flex items-center gap-3 rounded-2xl px-4 py-2.5 text-slate-200 transition hover:bg-white/5 hover:text-white">
+                                <span class="material-symbols-outlined text-lg text-indigo-300 transition group-hover:text-white">orders</span>
+                                <span class="font-medium">Reorders</span>
+                            </a>
+                        </nav>
 
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                           class="mt-4 flex items-center gap-3 rounded-2xl px-4 py-2.5 text-slate-200 transition hover:bg-red-500/15 hover:text-white">
+                            <span class="material-symbols-outlined text-lg text-red-300">logout</span>
+                            <span class="font-medium">Logout</span>
+                        </a>
 
-        <!-- Logout -->
-<a href="{{ route('logout') }}"
-   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-   class="flex items-center gap-3 px-4 py-2 text-gray-100 rounded hover:bg-red-600 transition mt-auto">
-    <span class="material-symbols-outlined text-lg">
-        logout
-    </span>
-    <span class="font-medium">Logout</span>
-</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                            @csrf
+                        </form>
+                    </div>
+                </aside>
+            @endif
 
-<form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-    @csrf
-</form>
-
-    </div>
-</aside>
-
-
-              @endif
-             <div class="flex flex-col flex-8  overflow-y-auto">
-
+            <main class="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8">
                 @yield("content")
-             </div>
+            </main>
+        </div>
 
 
 

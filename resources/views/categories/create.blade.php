@@ -3,58 +3,36 @@
 @section("title", __("Create Category"))
 
 @section("content")
-
-<div class="max-w-xl mx-auto mt-10">
-
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-
-        <!-- Header -->
-        <div class="bg-green-600 px-6 py-4">
-            <h1 class="text-2xl font-bold text-white">
-                Create Category
-            </h1>
+<div class="mx-auto max-w-2xl py-8">
+    <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm shadow-slate-200/70">
+        <div class="bg-gradient-to-r from-indigo-600 to-blue-600 px-6 py-5">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-100">Catalog</p>
+            <h1 class="mt-2 text-2xl font-bold text-white">Create Category</h1>
         </div>
 
-        <!-- Form -->
-        <form action="{{ route('categories.store') }}"
-              method="POST"
-              class="p-6 space-y-5">
-
+        <form action="{{ route('categories.store') }}" method="POST" class="space-y-6 p-6">
             @csrf
 
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                    Category Name
-                </label>
-
+                <label class="mb-2 block text-sm font-semibold text-slate-700">Category Name</label>
                 <input type="text"
                        name="name"
                        placeholder="Enter category name"
-                       class="w-full border border-gray-300 rounded-xl px-4 py-3
-                              focus:ring-2 focus:ring-green-500 focus:outline-none">
+                       class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100">
             </div>
 
-            <!-- Buttons -->
-            <div class="flex gap-3 pt-2">
-
+            <div class="flex flex-col gap-3 pt-2 sm:flex-row">
                 <a href="{{ route('categories.index') }}"
-                   class="px-6 py-3 rounded-xl bg-gray-200 hover:bg-gray-300
-                          text-gray-700 font-medium transition">
+                   class="inline-flex flex-1 items-center justify-center rounded-2xl border border-slate-200 bg-slate-100 px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-200">
                     Cancel
                 </a>
 
                 <button type="submit"
-                        class="px-6 py-3 rounded-xl bg-green-600 hover:bg-green-700
-                               text-white font-medium shadow transition">
+                        class="inline-flex flex-1 items-center justify-center rounded-2xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 transition hover:bg-indigo-500">
                     Save
                 </button>
-
             </div>
-
         </form>
-
     </div>
-
 </div>
-
 @endsection

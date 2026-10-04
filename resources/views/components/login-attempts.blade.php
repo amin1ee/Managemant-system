@@ -1,30 +1,28 @@
-<div class="flex items-center justify-between mb-4">
-    <h2 class="text-lg font-semibold">Login Activity</h2>
+<div class="mb-5 flex items-center justify-between">
+    <div>
+        <p class="text-sm font-medium uppercase tracking-[0.18em] text-slate-500">Activity</p>
+        <h2 class="mt-1 text-xl font-semibold text-slate-900">Login activity</h2>
+    </div>
 
-    <button onclick="toggleLoginAttempts()" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-lg">
-        Toggle List
+    <button onclick="toggleLoginAttempts()" class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-100">
+        Toggle list
     </button>
 </div>
 
-<div style="height: 320px;">
+<div class="h-64 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-2">
     <x-chartjs-component :chart="$loginChart" />
 </div>
 
-<!-- LOGIN LIST -->
-<div id="loginAttemptsDiv" class="mt-4 border-t pt-4 space-y-2">
-
+<div id="loginAttemptsDiv" class="mt-5 space-y-2 border-t border-slate-200 pt-4">
     @foreach ($loginAttempts as $attempt)
-        <div class="flex items-center justify-between text-sm bg-gray-50 px-3 py-2 rounded-lg">
-
-            <span class="font-medium text-gray-700">
+        <div class="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm">
+            <span class="font-medium text-slate-700">
                 {{ $attempt->user->name }}
             </span>
 
-            <span class="text-xs text-gray-500 bg-white px-2 py-1 rounded">
+            <span class="rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-slate-500 ring-1 ring-slate-200">
                 {{ $attempt->created_at->diffForHumans() }}
             </span>
-
         </div>
     @endforeach
-
 </div>
