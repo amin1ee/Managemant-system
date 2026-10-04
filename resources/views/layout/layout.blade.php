@@ -24,7 +24,7 @@
     </head>
     <body class="bg-slate-100 text-slate-800 antialiased">
         <div class="flex min-h-screen bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.14),transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(14,165,233,0.12),transparent_30%)]">
-            @if (auth()->user())
+            @if (auth()->user() && !request()->routeIs('home', 'login'))
                 <aside id="sidebare" class="m-4 flex flex-col rounded-[28px] border border-white/10 bg-slate-950/95 text-white shadow-[0_25px_60px_rgba(15,23,42,0.28)] backdrop-blur-xl">
                     <div class="flex flex-col flex-1 px-2 py-5">
                         <div class="mb-6 flex items-center gap-3 px-4">

@@ -9,9 +9,11 @@ use App\Http\Controllers\ReorderController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
+Route::view('/', 'landing')->name('home');
+
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::resource('products', ProductController::class);
     Route::resource('categories', CategoryController::class);
