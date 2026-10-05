@@ -17,6 +17,17 @@
             <form action="{{ route('login.store') }}" method="POST" class="space-y-6 p-8">
                 @csrf
 
+                @if ($errors->any())
+                    <div role="alert" class="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                        <p class="font-semibold">Unable to sign in.</p>
+                        <ul class="mt-1 list-inside list-disc">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div>
                     <label for="email" class="mb-2 block text-sm font-semibold text-slate-700">Email Address</label>
                     <input id="email"
@@ -25,6 +36,8 @@
                            required
                            autocomplete="email"
                            placeholder="Enter your email"
+                           value="{{ old('email') }}"
+                           @error('email') aria-invalid="true" @enderror
                            class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100">
                 </div>
 
