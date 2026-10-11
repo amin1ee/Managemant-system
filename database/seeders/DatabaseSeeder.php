@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Driver;
 use App\Models\Supplier;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -46,5 +47,18 @@ class DatabaseSeeder extends Seeder
             ]);
         }
         Supplier::factory()->count(20)->create();
+
+        $drivers = [
+            ['name' => 'Alex Johnson', 'telefon' => '+1 555 010 1001', 'email' => 'alex.johnson@example.com'],
+            ['name' => 'Sam Taylor', 'telefon' => '+1 555 010 1002', 'email' => 'sam.taylor@example.com'],
+            ['name' => 'Jordan Lee', 'telefon' => '+1 555 010 1003', 'email' => 'jordan.lee@example.com'],
+        ];
+
+        foreach ($drivers as $driver) {
+            Driver::create($driver);
+        }
+
+        $this->call(ProductSeeder::class);
+        $this->call(OrderSeeder::class);
     }
 }

@@ -58,6 +58,16 @@
                                 <span class="font-medium">Suppliers</span>
                             </a>
 
+                            <a href="{{ route('drivers.index') }}" class="group flex items-center gap-3 rounded-2xl px-4 py-2.5 text-slate-200 transition hover:bg-white/5 hover:text-white">
+                                <span class="material-symbols-outlined text-lg text-indigo-300 transition group-hover:text-white">directions_car</span>
+                                <span class="font-medium">Drivers</span>
+                            </a>
+
+                            <a href="{{ route('orders.index') }}" class="group flex items-center gap-3 rounded-2xl px-4 py-2.5 text-slate-200 transition hover:bg-white/5 hover:text-white">
+                                <span class="material-symbols-outlined text-lg text-indigo-300 transition group-hover:text-white">receipt_long</span>
+                                <span class="font-medium">Orders</span>
+                            </a>
+
                             <a href="{{ route('notifications.index') }}" class="group relative flex items-center gap-3 rounded-2xl px-4 py-2.5 text-slate-200 transition hover:bg-white/5 hover:text-white">
                                 <span class="material-symbols-outlined text-lg text-indigo-300 transition group-hover:text-white">notifications_active</span>
                                 <span class="font-medium">Notifications</span>

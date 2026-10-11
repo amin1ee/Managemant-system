@@ -3,7 +3,9 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DriverController;
 use App\Http\Controllers\NotificationsController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReorderController;
 use App\Http\Controllers\SupplierController;
@@ -18,6 +20,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('suppliers', SupplierController::class);
+    Route::resource('drivers', DriverController::class)->except('show');
+    Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
     Route::post('reorders/{id}/pdf', [ReorderController::class, 'generatePdf'])->name('reorders.pdf');
     Route::get('reorders/{reorder}/invoice', [ReorderController::class, 'invoice'])
         ->name('reorders.invoice');

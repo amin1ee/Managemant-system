@@ -11,7 +11,9 @@ class Product extends Model
 {
     /** @use HasFactory<ProductFactory> */
     use HasFactory;
+
     use Notifiable;
+
     protected $fillable = [
         'name',
         'price',
@@ -34,6 +36,11 @@ class Product extends Model
     public function reorder()
     {
         return $this->hasMany(Reorder::class);
+    }
+
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class);
     }
 
     public function stockStatus(): string
